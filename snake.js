@@ -4,13 +4,21 @@ const ctx = canvas.getContext("2d");
 const box = 20; // Size of the snake and food
 let snake = [{ x: 9 * box, y: 9 * box }]; // Snake starts at the center
 let direction = { x: 0, y: 0 }; // Current direction of the snake
-let food = { x: Math.floor(Math.random() * 18 + 1) * box, y: Math.floor(Math.random() * 18 + 1) * box }; // Random food position
+let food = generateFood(); // Random food position
 let score = 0; // Player's score
 let totalPoints = 0; // Total points for tasks
 let lifelines = 10; // Lifelines
 let tasks = []; // Array for tasks
 let leaderboard = []; // Leaderboard array
 let referrals = {}; // Referral tracking
+
+// Function to generate food position
+function generateFood() {
+    return {
+        x: Math.floor(Math.random() * (canvas.width / box)) * box,
+        y: Math.floor(Math.random() * (canvas.height / box)) * box
+    };
+}
 
 // Draw Snake Function
 function drawSnake() {
@@ -30,19 +38,16 @@ function drawFood() {
 function moveSnake() {
     if (direction.x === 0 && direction.y === 0) return; // Do not move if no direction is set
 
-    const newHead = { x: snake[0].x + direction.x * box, y: snake[0].y + direction.y * box };
-
-    // Wrap around the walls
-    if (newHead.x < 0) newHead.x = canvas.width - box; // Move to the right wall if left wall is crossed
-    if (newHead.x >= canvas.width) newHead.x = 0; // Move to the left wall if right wall is crossed
-    if (newHead.y < 0) newHead.y = canvas.height - box; // Move to the bottom wall if top wall is crossed
-    if (newHead.y >= canvas.height) newHead.y = 0; // Move to the top wall if bottom wall is crossed
+    const newHead = {
+        x: (snake[0].x + direction.x * box + canvas.width) % canvas.width,
+        y: (snake[0].y + direction.y * box + canvas.height) % canvas.height
+    };
 
     // Check for food collision
     if (newHead.x === food.x && newHead.y === food.y) {
         score++;
         totalPoints += 10; // Increment points for eating food
-        food = { x: Math.floor(Math.random() * 18 + 1) * box, y: Math.floor(Math.random() * 18 + 1) * box }; // New food position
+        food = generateFood(); // New food position
     } else {
         snake.pop(); // Remove last segment if no food is eaten
     }
