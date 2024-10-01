@@ -6,9 +6,9 @@ let snake = [{ x: 9 * box, y: 9 * box }]; // Snake starts at the center
 let direction = { x: 0, y: 0 }; // Current direction of the snake
 let food = { x: Math.floor(Math.random() * 18 + 1) * box, y: Math.floor(Math.random() * 18 + 1) * box }; // Random food position
 let score = 0; // Player's score
-let lifelines = 10; // Lifelines
-let dailyRewards = 100; // Daily rewards points
 let totalPoints = 0; // Total points for tasks
+let lifelines = 10; // Lifelines
+let tasks = []; // Array for tasks
 let leaderboard = []; // Leaderboard array
 let referrals = {}; // Referral tracking
 
@@ -41,15 +41,14 @@ function moveSnake() {
     // Check for food collision
     if (newHead.x === food.x && newHead.y === food.y) {
         score++;
-        food = { x: Math.floor(Math.random() * 18 + 1) * box, y: Math.floor(Math.random() * 18 + 1) * box }; // New food position
         totalPoints += 10; // Increment points for eating food
+        food = { x: Math.floor(Math.random() * 18 + 1) * box, y: Math.floor(Math.random() * 18 + 1) * box }; // New food position
     } else {
         snake.pop(); // Remove last segment if no food is eaten
     }
 
     // Check for collisions with self
     if (collision(newHead, snake)) {
-        // Handle Game Over
         alert("Game Over! You ran into yourself!");
         clearInterval(game);
         return;
@@ -105,7 +104,7 @@ document.getElementById("rightButton").addEventListener("click", function() {
 let game = setInterval(draw, 100); // Draw every 100ms
 
 // Task Management
-let tasks = [
+tasks = [
     { name: "Follow Social Media", points: 50 },
     { name: "Like a Post", points: 30 },
     { name: "Share a Post", points: 40 },
@@ -164,13 +163,6 @@ function generateReferralLink(playerName) {
     const referralLink = `https://yourgame.com/?ref=${playerName}`;
     referrals[playerName] = (referrals[playerName] || 0) + 1; // Increment referral count
     alert(`Your referral link: ${referralLink}`);
-}
-
-// Function to Check Referrals
-function checkReferrals() {
-    Object.keys(referrals).forEach(player => {
-        console.log(`${player} has referred ${referrals[player]} players.`);
-    });
 }
 
 // Example: Call this function when a player generates a referral link
