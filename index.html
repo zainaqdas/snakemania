@@ -3,72 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
+    <title>Snake Game - Home</title>
+    <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #eaeaea;
-            text-align: center;
-        }
-
-        .container {
-            width: 400px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        .display {
-            margin-bottom: 20px;
-        }
-
-        canvas {
-            border: 1px solid #333;
-            background-color: #f4f4f4;
-        }
-
-        .controls {
-            margin: 10px 0;
-        }
-
-        .controls button {
-            width: 80px;
-            height: 40px;
-            margin: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .menu {
-            margin-top: 20px;
-        }
-
-        .menu button {
-            width: 100px;
-            height: 40px;
-            margin: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        #taskList, #leaderboardList {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #taskList li, #leaderboardList li {
-            margin: 5px 0;
-            cursor: pointer;
-            color: blue;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -82,37 +19,26 @@
         <canvas id="gameCanvas" width="400" height="400"></canvas>
         
         <div class="controls">
-            <button id="leftBtn">Left</button>
-            <button id="upBtn">Up</button>
-            <button id="downBtn">Down</button>
-            <button id="rightBtn">Right</button>
+            <div class="joystick">
+                <button id="upBtn">Up</button>
+                <div class="side-buttons">
+                    <button id="leftBtn">Left</button>
+                    <button id="downBtn">Down</button>
+                    <button id="rightBtn">Right</button>
+                </div>
+            </div>
         </div>
         
         <div class="menu">
             <button id="playBtn">Play</button>
-            <button id="tasksBtn">Tasks</button>
-            <button id="leaderboardBtn">Leaderboard</button>
-            <button id="referralBtn">Referral</button>
+            <a href="tasks.html">Tasks</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="referral.html">Referral</a>
         </div>
 
-        <div id="homeSection" class="hidden">
+        <div id="homeSection">
             <h2>Welcome to the Snake Game!</h2>
             <p>Click Play to start the game.</p>
-        </div>
-
-        <div id="taskSection" class="hidden">
-            <h2>Tasks</h2>
-            <ul id="taskList"></ul>
-        </div>
-
-        <div id="leaderboardSection" class="hidden">
-            <h2>Leaderboard</h2>
-            <ul id="leaderboardList"></ul>
-        </div>
-
-        <div id="referralSection" class="hidden">
-            <h2>Referral Link</h2>
-            <p id="referralLink"></p>
         </div>
     </div>
 </body>
