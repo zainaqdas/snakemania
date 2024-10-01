@@ -32,6 +32,12 @@ function moveSnake() {
 
     const newHead = { x: snake[0].x + direction.x * box, y: snake[0].y + direction.y * box };
 
+    // Wrap around the walls
+    if (newHead.x < 0) newHead.x = canvas.width - box; // Move to the right wall if left wall is crossed
+    if (newHead.x >= canvas.width) newHead.x = 0; // Move to the left wall if right wall is crossed
+    if (newHead.y < 0) newHead.y = canvas.height - box; // Move to the bottom wall if top wall is crossed
+    if (newHead.y >= canvas.height) newHead.y = 0; // Move to the top wall if bottom wall is crossed
+
     // Check for food collision
     if (newHead.x === food.x && newHead.y === food.y) {
         score++;
@@ -41,10 +47,10 @@ function moveSnake() {
         snake.pop(); // Remove last segment if no food is eaten
     }
 
-    // Check for collisions with walls or self
-    if (newHead.x < 0 || newHead.y < 0 || newHead.x >= canvas.width || newHead.y >= canvas.height || collision(newHead, snake)) {
+    // Check for collisions with self
+    if (collision(newHead, snake)) {
         // Handle Game Over
-        alert("Game Over!");
+        alert("Game Over! You ran into yourself!");
         clearInterval(game);
         return;
     }
@@ -54,7 +60,7 @@ function moveSnake() {
 
 // Check Collision Function
 function collision(head, array) {
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 1; i < array.length; i++) { // Start from 1 to avoid collision with head
         if (head.x === array[i].x && head.y === array[i].y) {
             return true;
         }
