@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eaeaea;
+    text-align: center;
+}
+
+.container {
+    width: 400px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #333;
+}
+
+.display {
+    margin-bottom: 20px;
+}
+
+canvas {
+    border: 1px solid #333;
+    background-color: #f4f4f4;
+}
+
+.controls {
+    margin: 10px 0;
+}
+
+.controls button {
+    width: 80px;
+    height: 40px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.menu {
+    margin-top: 20px;
+}
+
+.menu button {
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#taskList, #leaderboardList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#taskList li, #leaderboardList li {
+    margin: 5px 0;
+    cursor: pointer;
+    color: blue;
+}
