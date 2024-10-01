@@ -26,37 +26,42 @@ canvas {
     margin: 10px 0;
 }
 
-.controls button {
+.joystick {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.joystick button {
     width: 80px;
     height: 40px;
-    margin: 5px;
     font-size: 16px;
     cursor: pointer;
+}
+
+.side-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.side-buttons button {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
 }
 
 .menu {
     margin-top: 20px;
 }
 
-.menu button {
-    width: 100px;
-    height: 40px;
+.menu a, .menu button {
+    display: inline-block;
     margin: 5px;
+    text-decoration: none;
+    color: #007BFF;
     font-size: 16px;
-    cursor: pointer;
 }
 
-.hidden {
-    display: none;
-}
-
-#taskList, #leaderboardList {
-    list-style-type: none;
-    padding: 0;
-}
-
-#taskList li, #leaderboardList li {
-    margin: 5px 0;
-    cursor: pointer;
-    color: blue;
+.menu a:hover, .menu button:hover {
+    text-decoration: underline;
 }
