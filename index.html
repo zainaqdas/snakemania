@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #333;
+      color: white;
+      text-align: center;
+    }
+    canvas {
+      background-color: black;
+      border: 1px solid white;
+    }
+    #controls {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px;
+      margin: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #menuButtons {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: #222;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Home Section -->
+  <div id="homeSection">
+    <h1>Welcome, <span id="playerName"></span></h1>
+    <p>Level: <span id="playerLevel"></span></p>
+    <p>Pills: <span id="playerPills"></span></p>
+    <button id="playBtn">Play</button>
+  </div>
+
+  <!-- Game Section -->
+  <div id="gameSection" style="display:none;">
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <div id="controls">
+      <button id="upBtn">Up</button>
+      <button id="leftBtn">Left</button>
+      <button id="rightBtn">Right</button>
+      <button id="downBtn">Down</button>
+    </div>
+  </div>
+
+  <!-- Task Section -->
+  <div id="taskSection" style="display:none;">
+    <h2>Tasks</h2>
+    <button id="task1">Follow on Twitter (Earn 50 Pills)</button>
+    <button id="task2">Like on Facebook (Earn 50 Pills)</button>
+  </div>
+
+  <!-- Leaderboard Section -->
+  <div id="leaderboardSection" style="display:none;">
+    <h2>Leaderboard</h2>
+    <ul id="leaderboardList"></ul>
+  </div>
+
+<!-- Referral Section -->
+<div id="referralSection" style="display:none;">
+    <h2>Your Referral Link</h2>
+    <p>Invite others using this link: <span id="referralLink"></span></p>
+    <p>Earn 50 Pills for each successful referral!</p>
+</div>
+
+<!-- Bottom Navigation -->
+<div id="menuButtons">
+    <button onclick="showSection('homeSection')">Home</button>
+    <button onclick="showSection('taskSection')">Tasks</button>
+    <button onclick="showSection('leaderboardSection')">Leaderboard</button>
+    <button onclick="showSection('referralSection')">Referral</button>
+</div>
+
+<script src="snake.js"></script>
+</body>
+</html>
