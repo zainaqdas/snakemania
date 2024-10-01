@@ -3,47 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Snake Game</title>
+    <title>Snake Game</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>Advanced Snake Game</h1>
-    <div id="gameContainer">
+    <div class="container">
+        <h1>Snake Game</h1>
+        <div class="display">
+            <p id="score">Score: 0</p>
+            <p id="pills">Pills: 0</p>
+            <p id="lifelines">Lifelines: 10</p>
+            <p id="level">Level: 1</p>
+        </div>
         <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <div id="score">Score: 0</div>
-        <div id="lifelines">Lifelines: 10</div>
+        
+        <div class="controls">
+            <button id="leftBtn">Left</button>
+            <button id="upBtn">Up</button>
+            <button id="downBtn">Down</button>
+            <button id="rightBtn">Right</button>
+        </div>
+        
+        <div class="menu">
+            <button id="playBtn">Play</button>
+            <button id="tasksBtn">Tasks</button>
+            <button id="leaderboardBtn">Leaderboard</button>
+            <button id="referralBtn">Referral</button>
+        </div>
+
+        <div id="homeSection" class="hidden">
+            <h2>Welcome to the Snake Game!</h2>
+            <p>Click Play to start the game.</p>
+        </div>
+
+        <div id="taskSection" class="hidden">
+            <h2>Tasks</h2>
+            <ul id="taskList"></ul>
+        </div>
+
+        <div id="leaderboardSection" class="hidden">
+            <h2>Leaderboard</h2>
+            <ul id="leaderboardList"></ul>
+        </div>
+
+        <div id="referralSection" class="hidden">
+            <h2>Referral Link</h2>
+            <p id="referralLink"></p>
+        </div>
     </div>
-    <div id="buttons">
-        <button id="leftBtn">Left</button>
-        <button id="upBtn">Up</button>
-        <button id="downBtn">Down</button>
-        <button id="rightBtn">Right</button>
-    </div>
-    <div id="sections">
-        <button id="homeBtn">Home</button>
-        <button id="tasksBtn">Tasks</button>
-        <button id="leaderboardBtn">Leaderboard</button>
-        <button id="referralBtn">Referral</button>
-    </div>
-    <div id="homeSection">
-        <h2>Home</h2>
-        <p id="playerName">Player: <span>Player1</span></p>
-        <p id="playerLevel">Level: <span id="level">1</span></p>
-        <p id="pillsCount">Pills: <span id="pills">0</span></p>
-        <button id="playBtn">Play</button>
-    </div>
-    <div id="taskSection" class="hidden">
-        <h2>Tasks</h2>
-        <ul id="taskList"></ul>
-    </div>
-    <div id="leaderboardSection" class="hidden">
-        <h2>Leaderboard</h2>
-        <ul id="leaderboardList"></ul>
-    </div>
-    <div id="referralSection" class="hidden">
-        <h2>Referral</h2>
-        <p>Your Referral Link: <span id="referralLink">http://game.com/referral?user=Player1</span></p>
-    </div>
-    <script src="script.js"></script>
 </body>
 </html>
