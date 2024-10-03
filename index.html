@@ -3,43 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game - Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>Tap-to-Earn Game</title>
+    <link rel="stylesheet" href="assets/styles/style.css">  <!-- Link to the CSS file -->
 </head>
 <body>
-    <div class="container">
-        <h1>Snake Game</h1>
-        <div class="display">
-            <p id="score">Score: 0</p>
-            <p id="pills">Pills: 0</p>
-            <p id="lifelines">Lifelines: 10</p>
-            <p id="level">Level: 1</p>
-        </div>
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-        
-        <div class="controls">
-            <div class="joystick">
-                <button id="upBtn">Up</button>
-                <div class="side-buttons">
-                    <button id="leftBtn">Left</button>
-                    <button id="downBtn">Down</button>
-                    <button id="rightBtn">Right</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="menu">
-            <button id="playBtn">Play</button>
-            <a href="tasks.html">Tasks</a>
-            <a href="leaderboard.html">Leaderboard</a>
-            <a href="referral.html">Referral</a>
-        </div>
-
-        <div id="homeSection">
-            <h2>Welcome to the Snake Game!</h2>
-            <p>Click Play to start the game.</p>
-        </div>
-    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas> <!-- Game canvas -->
+    <div id="scoreDisplay">Score: 0</div> <!-- Display the score -->
+    <div id="airdropDisplay">Airdrop: 0</div> <!-- Display the airdrop -->
+    <button id="startButton">Start Game</button> <!-- Start game button -->
+    
+    <script src="src/utils.js"></script>   <!-- Utility functions -->
+    <script src="src/events.js"></script>  <!-- Event handlers -->
+    <script src="src/game.js"></script>    <!-- Main game logic -->
 </body>
 </html>
